@@ -7,9 +7,7 @@ while index < len(my_list):
     if number == 0:
         continue
     elif number < 0:
-        print('Задание окончено', number)
+        print('Задание окончено')
         break
-    elif number == len(my_list):
-        print('stop')
     else:
         print(number)
