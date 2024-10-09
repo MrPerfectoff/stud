@@ -1,6 +1,6 @@
 def add_everything_up(a, b):
     try:
-        print(a + b)
+        return (a + b)
     except TypeError:
         if type(a) != type(b):
             return (str(a) + str(b))
