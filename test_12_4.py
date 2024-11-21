@@ -5,7 +5,7 @@ from runnerTest import Runner
 logging.basicConfig(
     filename='runner_tests.log',
     level=logging.INFO,
-    filemode='w',  # Убедитесь, что используете filemode
+    filemode='w',
     encoding='utf-8',
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -14,7 +14,7 @@ class RunnerTest(unittest.TestCase):
 
     def test_walk(self):
         try:
-            runner = Runner("Test Runner", -5)  # Передаем отрицательное значение speed
+            runner = Runner("Test Runner", -5)
             runner.walk()
             logging.info('"test_walk" выполнен успешно')
         except ValueError:
@@ -22,7 +22,7 @@ class RunnerTest(unittest.TestCase):
 
     def test_run(self):
         try:
-            runner = Runner(12345, 5)  # Передаем некорректный тип name (должно быть строкой)
+            runner = Runner(12345, 5)
             runner.run()
             logging.info('"test_run" выполнен успешно')
         except TypeError:
