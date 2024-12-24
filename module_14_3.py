@@ -73,7 +73,3 @@ async def send_confirm_message(call: types.CallbackQuery):
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
-
-
-if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
