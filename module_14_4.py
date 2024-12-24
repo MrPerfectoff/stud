@@ -9,7 +9,7 @@ from crud_functions import initiate_db, get_all_products
 
 from crud_functions import initiate_db, get_all_products
 
-API_TOKEN = '7938815284:AAHp1mJaKpvE7a0sNXPs784F26izYZDcUbM'
+API_TOKEN = ''
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -44,7 +44,6 @@ button_calories = InlineKeyboardButton('Рассчитать норму кало
 button_formulas = InlineKeyboardButton('Формулы расчёта', callback_data='formulas')
 inline_keyboard.add(button_calories, button_formulas)
 
-# Новое Inline меню для покупки
 buy_inline_keyboard = InlineKeyboardMarkup()
 button_product1 = InlineKeyboardButton('Product1', callback_data='product_buying')
 button_product2 = InlineKeyboardButton('Product2', callback_data='product_buying')
