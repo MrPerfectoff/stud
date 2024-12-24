@@ -2,11 +2,9 @@ import sqlite3
 
 
 def initiate_db():
-    # Инициализация базы данных для пользователей
     conn = sqlite3.connect('my_database.db')
     cursor = conn.cursor()
 
-    # Создание таблицы Products, если она не существует
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Products (
             id INTEGER PRIMARY KEY,
@@ -16,7 +14,6 @@ def initiate_db():
         )
     ''')
 
-    # Создание таблицы Users, если она не существует
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
