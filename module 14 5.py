@@ -6,7 +6,7 @@ from aiogram.utils import executor
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from crud_functions import initiate_db, get_all_products, add_user, is_included
 
-API_TOKEN = '7938815284:AAHp1mJaKpvE7a0sNXPs784F26izYZDcUbM'
+API_TOKEN = ''
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -17,7 +17,7 @@ keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 button_calculate = KeyboardButton('Рассчитать')
 button_info = KeyboardButton('Информация')
 button_buy = KeyboardButton('Купить')
-button_register = KeyboardButton('Регистрация')  # Кнопка регистрации
+button_register = KeyboardButton('Регистрация')
 keyboard.add(button_calculate, button_info, button_buy, button_register)
 
 class RegistrationState(StatesGroup):
@@ -59,7 +59,7 @@ async def set_age(message: types.Message, state: FSMContext):
     username = data.get('username')
     email = data.get('email')
 
-    add_user(username, email, age)  # Добавление пользователя в БД
+    add_user(username, email, age)
     await message.answer("Вы успешно зарегистрированы!")
     await state.finish()
 
@@ -75,7 +75,6 @@ button_calories = InlineKeyboardButton('Рассчитать норму кало
 button_formulas = InlineKeyboardButton('Формулы расчёта', callback_data='formulas')
 inline_keyboard.add(button_calories, button_formulas)
 
-# Новое Inline меню для покупки
 buy_inline_keyboard = InlineKeyboardMarkup()
 button_product1 = InlineKeyboardButton('Product1', callback_data='product_buying')
 button_product2 = InlineKeyboardButton('Product2', callback_data='product_buying')
