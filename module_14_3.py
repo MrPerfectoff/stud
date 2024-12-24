@@ -21,7 +21,7 @@ class UserState(StatesGroup):
 keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 button_calculate = KeyboardButton('Рассчитать')
 button_info = KeyboardButton('Информация')
-button_buy = KeyboardButton('Купить')  # Новая кнопка "Купить"
+button_buy = KeyboardButton('Купить') 
 keyboard.add(button_calculate, button_info, button_buy)
 
 inline_keyboard = InlineKeyboardMarkup()
@@ -48,7 +48,7 @@ async def main_menu(message: types.Message):
     await message.answer('Выберите опцию:', reply_markup=inline_keyboard)
 
 
-@dp.message_handler(lambda message: message.text.lower() == 'купить')  # Хэндлер для кнопки "Купить"
+@dp.message_handler(lambda message: message.text.lower() == 'купить') 
 async def get_buying_list(message: types.Message):
     products_info = [
         (1, "Product1", "описание 1", 100, 'https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=%D0%96%D0%B8%D1%80%D0%BE%D1%81%D0%B6%D0%B8%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&product_id=1428436112'),
@@ -59,18 +59,17 @@ async def get_buying_list(message: types.Message):
 
     for number, name, description, price, image_url in products_info:
         await message.answer(f'Название: {name} | Описание: {description} | Цена: {price} руб.')
-        await bot.send_photo(message.chat.id, photo=image_url)  # Отправка изображения
+        await bot.send_photo(message.chat.id, photo=image_url)  
 
     await message.answer("Выберите продукт для покупки:", reply_markup=buy_inline_keyboard)
 
 
-@dp.callback_query_handler(lambda call: call.data == 'product_buying')  # Хэндлер для покупки продукта
+@dp.callback_query_handler(lambda call: call.data == 'product_buying')
 async def send_confirm_message(call: types.CallbackQuery):
     await call.message.answer("Вы успешно приобрели продукт!")
     await call.answer()
 
 
-# Остальные хэндлеры остаются без изменений...
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
