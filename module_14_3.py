@@ -29,7 +29,6 @@ button_calories = InlineKeyboardButton('Рассчитать норму кало
 button_formulas = InlineKeyboardButton('Формулы расчёта', callback_data='formulas')
 inline_keyboard.add(button_calories, button_formulas)
 
-# Новое Inline меню для покупки
 buy_inline_keyboard = InlineKeyboardMarkup()
 button_product1 = InlineKeyboardButton('Product1', callback_data='product_buying')
 button_product2 = InlineKeyboardButton('Product2', callback_data='product_buying')
